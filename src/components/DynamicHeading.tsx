@@ -15,45 +15,52 @@ export default function DynamicHeading() {
   const [text, setText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [speed, setSpeed] = useState(80);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const currentPhrase = phrases[phraseIndex];
 
-    if (!isDeleting) {
-      if (text === currentPhrase) {
-        setSpeed(2000);
-        setTimeout(() => {
-          setIsDeleting(true);
-          setSpeed(40);
-        }, speed);
-        return;
-      }
-    } else {
-      if (text === "") {
+    if (isPaused) {
+      const timeout = setTimeout(() => {
+        setIsPaused(false);
+        setIsDeleting(true);
+      }, 1200);
+      return () => clearTimeout(timeout);
+    }
+
+    if (!isDeleting && text === currentPhrase) {
+      const timeout = setTimeout(() => {
+        setIsPaused(true);
+      }, 1800);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && text === "") {
+      const timeout = setTimeout(() => {
         setIsDeleting(false);
         setPhraseIndex((prev) => (prev + 1) % phrases.length);
-        setSpeed(300);
-        return;
-      }
+      }, 400);
+      return () => clearTimeout(timeout);
     }
+
+    const speed = isDeleting ? 25 : 55;
 
     const timeout = setTimeout(() => {
       setText((prev) => {
         if (isDeleting) {
-          return prev.slice(0, -1);
+          return currentPhrase.slice(0, prev.length - 1);
         }
         return currentPhrase.slice(0, prev.length + 1);
       });
     }, speed);
 
     return () => clearTimeout(timeout);
-  }, [text, isDeleting, phraseIndex, speed]);
+  }, [text, isDeleting, phraseIndex, isPaused]);
 
   return (
-    <span className="text-brand-green">
+    <span className="text-brand-green relative inline-block">
       {text}
-      <span className="inline-block w-[3px] h-[0.9em] bg-brand-green ml-1 align-middle animate-pulse" />
+      <span className="inline-block w-[3px] h-[0.85em] bg-brand-green ml-0.5 align-middle animate-cursor-blink" />
     </span>
   );
 }
