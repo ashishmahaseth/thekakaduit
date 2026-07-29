@@ -1,3 +1,5 @@
+import ServiceCard from "@/components/ServiceCard";
+import DynamicText from "@/components/DynamicText";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -81,25 +83,25 @@ export default function Home() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-sm font-medium mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-sm font-medium mb-8 animate-fade-in-up">
             <span className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
             Canberra&apos;s Trusted IT Partner
           </div>
 
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-5xl mx-auto">
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-5xl mx-auto animate-fade-in-up delay-200">
             Unlocking Success in the 
             <span className="text-brand-green">Digital Age</span>
             <br />
-            <span className="text-brand-green">Kakadu IT</span>
+            <DynamicText />
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up delay-300">
             Empowering Excellence, Embracing Innovation.
             The Kakadu IT Solutions delivers end-to-end managed IT services, cloud infrastructure,
             cybersecurity, and Microsoft 365 solutions for Australian businesses.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-400">
             <Link
               href="/contact"
               className="px-8 py-4 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-greenDark transition-all hover:shadow-xl hover:shadow-brand-green/20"
@@ -115,7 +117,7 @@ export default function Home() {
           </div>
 
           {/* Stats */}
-          <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto animate-fade-in-up delay-500">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-heading font-bold text-3xl sm:text-4xl text-brand-green mb-2">
@@ -139,7 +141,7 @@ export default function Home() {
       {/* Services Overview */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in-up">
             <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
               What We Do
             </span>
@@ -153,30 +155,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="group p-8 rounded-2xl bg-gray-50 border border-brand-navy/5 hover:border-brand-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-green/5"
-              >
-                <div className="w-16 h-16 rounded-xl bg-brand-greenLight flex items-center justify-center text-brand-green mb-6 group-hover:bg-brand-green group-hover:text-white transition-all">
-                  {service.icon}
-                </div>
-                <h3 className="font-heading font-semibold text-xl text-brand-navy mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-brand-text text-sm leading-relaxed mb-4">
-                  {service.description}
-                </p>
-                <Link
-                  href="/services"
-                  className="text-brand-green text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all"
-                >
-                  Learn more
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
+            {services.map((service, index) => (
+              <ServiceCard key={service.title} service={service} index={index} />
             ))}
           </div>
         </div>
@@ -185,14 +165,14 @@ export default function Home() {
       {/* Why Choose Us */}
       <section className="py-24 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
                 Why The Kakadu IT
               </span>
               <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3 mb-6">
-                Your IT Partner,{" "}
+                Your IT Partner, 
                 <span className="text-brand-green">Not Just a Vendor</span>
               </h2>
               <p className="text-brand-text text-lg mb-8 leading-relaxed">
@@ -286,7 +266,7 @@ export default function Home() {
       {/* Testimonials */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in-up">
             <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
               Testimonials
             </span>
@@ -332,7 +312,7 @@ export default function Home() {
             Join 500+ Australian businesses that trust The Kakadu IT Solutions for their
             technology infrastructure. Get a free consultation today.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-400">
             <Link
               href="/contact"
               className="px-8 py-4 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-greenDark transition-all hover:shadow-xl hover:shadow-brand-green/20"
