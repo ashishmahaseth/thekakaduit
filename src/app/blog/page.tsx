@@ -69,12 +69,12 @@ export default function Blog() {
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-brand-cyan text-sm font-semibold uppercase tracking-wider font-mono">
+            <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
               Insights & Resources
             </span>
             <h1 className="font-heading font-bold text-5xl sm:text-6xl text-white mt-3 mb-6">
               IT Knowledge{" "}
-              <span className="text-brand-cyan">Hub</span>
+              <span className="text-brand-green">Hub</span>
             </h1>
             <p className="text-lg text-slate-300 leading-relaxed">
               Practical guides, industry insights, and expert perspectives from The Kakadu IT team.
@@ -85,7 +85,7 @@ export default function Blog() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-24 bg-brand-dark">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Categories filter (visual only) */}
           <div className="flex flex-wrap gap-3 mb-12">
@@ -94,8 +94,8 @@ export default function Blog() {
                 key={cat}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                   cat === "All"
-                    ? "bg-brand-cyan text-brand-navy"
-                    : "bg-brand-navy text-slate-300 border border-white/10 hover:border-brand-cyan hover:text-brand-cyan"
+                    ? "bg-brand-green text-white"
+                    : "bg-gray-50 text-brand-text border border-brand-navy/10 hover:border-brand-green hover:text-brand-green"
                 }`}
               >
                 {cat}
@@ -108,26 +108,26 @@ export default function Blog() {
             {posts.map((post) => (
               <article
                 key={post.slug}
-                className="group rounded-2xl bg-brand-navy border border-white/10 hover:border-brand-cyan/50 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-brand-cyan/5 flex flex-col"
+                className="group rounded-2xl bg-gray-50 border border-brand-navy/10 hover:border-brand-green/50 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-brand-green/5 flex flex-col"
               >
                 <div className="p-8 flex flex-col flex-grow">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-mono text-brand-cyan uppercase tracking-wider font-semibold">
+                    <span className="text-xs font-mono text-brand-green uppercase tracking-wider font-semibold">
                       {post.category}
                     </span>
-                    <span className="text-xs text-slate-500">{post.readTime}</span>
+                    <span className="text-xs text-brand-text">{post.readTime}</span>
                   </div>
 
-                  <h2 className="font-heading font-semibold text-xl text-white mb-3 group-hover:text-brand-cyan transition-colors leading-tight">
+                  <h2 className="font-heading font-semibold text-xl text-brand-navy mb-3 group-hover:text-brand-green transition-colors leading-tight">
                     {post.title}
                   </h2>
 
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                  <p className="text-brand-text text-sm leading-relaxed mb-6 flex-grow">
                     {post.excerpt}
                   </p>
 
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
-                    <span className="text-xs text-slate-500">
+                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-brand-navy/5">
+                    <span className="text-xs text-brand-text">
                       {new Date(post.date).toLocaleDateString("en-AU", {
                         day: "numeric",
                         month: "short",
@@ -136,7 +136,7 @@ export default function Blog() {
                     </span>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="text-brand-cyan text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                      className="text-brand-green text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all"
                     >
                       Read
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

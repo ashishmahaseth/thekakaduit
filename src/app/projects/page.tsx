@@ -63,12 +63,12 @@ export default function Projects() {
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-brand-cyan text-sm font-semibold uppercase tracking-wider font-mono">
+            <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
               Our Work
             </span>
             <h1 className="font-heading font-bold text-5xl sm:text-6xl text-white mt-3 mb-6">
               Projects That{" "}
-              <span className="text-brand-cyan">Deliver Results</span>
+              <span className="text-brand-green">Deliver Results</span>
             </h1>
             <p className="text-lg text-slate-300 leading-relaxed">
               A selection of successful IT infrastructure projects across cloud migration,
@@ -79,34 +79,32 @@ export default function Projects() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-24 bg-brand-dark">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group rounded-2xl bg-brand-navy border border-white/10 hover:border-brand-cyan/50 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-brand-cyan/5"
+                className="group rounded-2xl bg-gray-50 border border-brand-navy/10 hover:border-brand-green/50 transition-all duration-300 overflow-hidden hover:shadow-xl hover:shadow-brand-green/5"
               >
-                {/* Header */}
                 <div className="p-8 pb-6">
-                  <span className="text-xs font-mono text-brand-cyan uppercase tracking-wider font-semibold">
+                  <span className="text-xs font-mono text-brand-green uppercase tracking-wider font-semibold">
                     {project.category}
                   </span>
-                  <h3 className="font-heading font-semibold text-xl text-white mt-2 mb-3 group-hover:text-brand-cyan transition-colors">
+                  <h3 className="font-heading font-semibold text-xl text-brand-navy mt-2 mb-3 group-hover:text-brand-green transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-brand-text text-sm leading-relaxed">
                     {project.description}
                   </p>
                 </div>
 
-                {/* Tech Stack */}
                 <div className="px-8 pb-4">
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-3 py-1 rounded-full bg-brand-cyan/10 text-brand-cyan text-xs font-mono font-medium"
+                        className="px-3 py-1 rounded-full bg-brand-greenLight text-brand-green text-xs font-mono font-medium"
                       >
                         {t}
                       </span>
@@ -114,13 +112,12 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Result */}
                 <div className="px-8 pb-8 pt-2">
-                  <div className="p-4 rounded-xl bg-brand-dark border border-white/5">
-                    <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-1">
+                  <div className="p-4 rounded-xl bg-white border border-brand-navy/5">
+                    <div className="text-xs text-brand-text uppercase tracking-wider font-semibold mb-1">
                       Outcome
                     </div>
-                    <p className="text-sm text-brand-cyan font-medium">{project.result}</p>
+                    <p className="text-sm text-brand-green font-medium">{project.result}</p>
                   </div>
                 </div>
               </div>
@@ -141,7 +138,7 @@ export default function Projects() {
           </p>
           <Link
             href="/contact"
-            className="inline-block px-8 py-4 bg-brand-cyan text-brand-navy font-semibold rounded-lg hover:bg-brand-cyan-dark transition-all hover:shadow-xl hover:shadow-brand-cyan/20"
+            className="inline-block px-8 py-4 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-greenDark transition-all hover:shadow-xl hover:shadow-brand-green/20"
           >
             Start a Conversation
           </Link>

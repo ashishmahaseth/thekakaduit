@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -73,27 +74,27 @@ export default function Home() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-navy">
-        <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/80 via-brand-navy/60 to-brand-navy" />
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-brand-navy overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/90 via-brand-navy/70 to-brand-navy" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
 
-        {/* Decorative orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-cyan/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-32">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-sm font-medium mb-8">
-            <span className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-sm font-medium mb-8">
+            <span className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
             Canberra&apos;s Trusted IT Partner
           </div>
 
-          <h1 className="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl text-white mb-6 leading-tight max-w-5xl mx-auto">
-            Empowering Businesses Through{" "}
-            <span className="text-brand-cyan">Innovation</span> &{" "}
-            <span className="text-brand-gold">Expertise</span>
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-5xl mx-auto">
+            Unlocking Success in the{" "}
+            <span className="text-brand-green">Digital Age</span>
+            <br />
+            <span className="text-brand-green">Kakadu IT</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+            Empowering Excellence, Embracing Innovation.
             The Kakadu IT Solutions delivers end-to-end managed IT services, cloud infrastructure,
             cybersecurity, and Microsoft 365 solutions for Australian businesses.
           </p>
@@ -101,15 +102,15 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="px-8 py-4 bg-brand-cyan text-brand-navy font-semibold rounded-lg hover:bg-brand-cyan-dark transition-all hover:shadow-xl hover:shadow-brand-cyan/20"
+              className="px-8 py-4 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-greenDark transition-all hover:shadow-xl hover:shadow-brand-green/20"
             >
-              Book a Free Consultation
+              Learn More
             </Link>
             <Link
               href="/services"
-              className="px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:border-brand-cyan hover:text-brand-cyan transition-all"
+              className="px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:border-brand-green hover:text-brand-green transition-all"
             >
-              Explore Services
+              Our Services
             </Link>
           </div>
 
@@ -117,7 +118,7 @@ export default function Home() {
           <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="font-heading font-bold text-3xl sm:text-4xl text-brand-cyan mb-2">
+                <div className="font-heading font-bold text-3xl sm:text-4xl text-brand-green mb-2">
                   {stat.number}
                 </div>
                 <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">
@@ -128,7 +129,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <svg className="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -137,16 +137,16 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-24 bg-brand-dark">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-brand-cyan text-sm font-semibold uppercase tracking-wider font-mono">
+            <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
               What We Do
             </span>
-            <h2 className="font-heading font-bold text-4xl sm:text-5xl text-white mt-3 mb-4">
+            <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3 mb-4">
               Comprehensive IT Solutions
             </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+            <p className="text-brand-text max-w-2xl mx-auto text-lg">
               From day-to-day support to strategic cloud architecture, we provide the full spectrum
               of IT services your business needs.
             </p>
@@ -156,20 +156,20 @@ export default function Home() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="group p-8 rounded-2xl bg-brand-navy border border-white/10 hover:border-brand-cyan/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-cyan/5"
+                className="group p-8 rounded-2xl bg-gray-50 border border-brand-navy/5 hover:border-brand-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-green/5"
               >
-                <div className="w-16 h-16 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan mb-6 group-hover:bg-brand-cyan group-hover:text-brand-navy transition-all">
+                <div className="w-16 h-16 rounded-xl bg-brand-greenLight flex items-center justify-center text-brand-green mb-6 group-hover:bg-brand-green group-hover:text-white transition-all">
                   {service.icon}
                 </div>
-                <h3 className="font-heading font-semibold text-xl text-white mb-3">
+                <h3 className="font-heading font-semibold text-xl text-brand-navy mb-3">
                   {service.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                <p className="text-brand-text text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
                 <Link
                   href="/services"
-                  className="text-brand-cyan text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all"
+                  className="text-brand-green text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all"
                 >
                   Learn more
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -183,19 +183,19 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 bg-brand-navy relative overflow-hidden">
+      <section className="py-24 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-brand-cyan text-sm font-semibold uppercase tracking-wider font-mono">
+              <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
                 Why The Kakadu IT
               </span>
-              <h2 className="font-heading font-bold text-4xl sm:text-5xl text-white mt-3 mb-6">
+              <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3 mb-6">
                 Your IT Partner,{" "}
-                <span className="text-brand-cyan">Not Just a Vendor</span>
+                <span className="text-brand-green">Not Just a Vendor</span>
               </h2>
-              <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+              <p className="text-brand-text text-lg mb-8 leading-relaxed">
                 We don&apos;t just fix problems — we prevent them. Our proactive approach means
                 your systems stay secure, compliant, and running at peak performance.
               </p>
@@ -220,14 +220,14 @@ export default function Home() {
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-cyan/20 flex items-center justify-center mt-1">
-                      <svg className="w-4 h-4 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-green/20 flex items-center justify-center mt-1">
+                      <svg className="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-heading font-semibold text-white mb-1">{item.title}</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                      <h4 className="font-heading font-semibold text-brand-navy mb-1">{item.title}</h4>
+                      <p className="text-brand-text text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -236,7 +236,7 @@ export default function Home() {
 
             {/* Right side - testimonial / trust card */}
             <div className="space-y-6">
-              <div className="p-8 rounded-2xl bg-brand-dark border border-white/10">
+              <div className="p-8 rounded-2xl bg-white border border-brand-navy/10 shadow-sm">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
@@ -244,19 +244,19 @@ export default function Home() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-slate-300 text-lg mb-6 leading-relaxed italic">
+                <p className="text-brand-text text-lg mb-6 leading-relaxed italic">
                   &ldquo;The Kakadu IT transformed our IT operations. Their proactive approach means
                   we rarely even think about IT — it just works.&rdquo;
                 </p>
                 <div>
-                  <div className="font-heading font-semibold text-white">Sarah Chen</div>
-                  <div className="text-sm text-slate-400">CFO, Canberra Business Group</div>
+                  <div className="font-heading font-semibold text-brand-navy">Sarah Chen</div>
+                  <div className="text-sm text-brand-text">CFO, Canberra Business Group</div>
                 </div>
               </div>
 
               {/* Google Reviews placeholder */}
-              <div className="p-6 rounded-2xl bg-brand-navy border border-white/10 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center">
+              <div className="p-6 rounded-2xl bg-white border border-brand-navy/10 flex items-center gap-4 shadow-sm">
+                <div className="w-14 h-14 rounded-full bg-white border border-brand-navy/10 flex items-center justify-center">
                   <svg className="w-8 h-8" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.3v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -265,7 +265,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <div>
-                  <div className="font-heading font-semibold text-white">Google Reviews</div>
+                  <div className="font-heading font-semibold text-brand-navy">Google Reviews</div>
                   <div className="flex items-center gap-2">
                     <div className="flex gap-0.5">
                       {[...Array(5)].map((_, i) => (
@@ -274,7 +274,7 @@ export default function Home() {
                         </svg>
                       ))}
                     </div>
-                    <span className="text-sm text-slate-300">5.0 · 24 reviews</span>
+                    <span className="text-sm text-brand-text">5.0 · 24 reviews</span>
                   </div>
                 </div>
               </div>
@@ -284,13 +284,13 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-brand-dark">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-brand-cyan text-sm font-semibold uppercase tracking-wider font-mono">
+            <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
               Testimonials
             </span>
-            <h2 className="font-heading font-bold text-4xl sm:text-5xl text-white mt-3">
+            <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3">
               Trusted by Canberra Businesses
             </h2>
           </div>
@@ -299,7 +299,7 @@ export default function Home() {
             {testimonials.map((t) => (
               <div
                 key={t.author}
-                className="p-8 rounded-2xl bg-brand-navy border border-white/10"
+                className="p-8 rounded-2xl bg-gray-50 border border-brand-navy/10"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(t.rating)].map((_, i) => (
@@ -308,12 +308,12 @@ export default function Home() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-slate-300 text-lg mb-6 leading-relaxed italic">
+                <p className="text-brand-text text-lg mb-6 leading-relaxed italic">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div>
-                  <div className="font-heading font-semibold text-white">{t.author}</div>
-                  <div className="text-sm text-slate-400">{t.role}</div>
+                  <div className="font-heading font-semibold text-brand-navy">{t.author}</div>
+                  <div className="text-sm text-brand-text">{t.role}</div>
                 </div>
               </div>
             ))}
@@ -323,7 +323,7 @@ export default function Home() {
 
       {/* CTA */}
       <section className="py-24 bg-brand-navy relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/10 to-brand-gold/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-green/10 to-brand-green/5" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading font-bold text-4xl sm:text-5xl text-white mb-6">
             Ready to Transform Your IT?
@@ -335,13 +335,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="px-8 py-4 bg-brand-cyan text-brand-navy font-semibold rounded-lg hover:bg-brand-cyan-dark transition-all hover:shadow-xl hover:shadow-brand-cyan/20"
+              className="px-8 py-4 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-greenDark transition-all hover:shadow-xl hover:shadow-brand-green/20"
             >
               Schedule a Consultation
             </Link>
             <a
-              href="tel:+61251144800"
-              className="px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:border-brand-cyan hover:text-brand-cyan transition-all flex items-center gap-2"
+              href="tel:0251144800"
+              className="px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:border-brand-green hover:text-brand-green transition-all flex items-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

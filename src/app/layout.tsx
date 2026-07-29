@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${jetbrains.variable}`}>
-      <body className="font-sans bg-brand-navy text-white antialiased">
+      <body className="font-sans bg-white text-brand-text antialiased">
         {children}
       </body>
     </html>

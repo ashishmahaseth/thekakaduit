@@ -8,7 +8,7 @@ const services = [
     title: "Managed IT Support",
     tagline: "Your outsourced IT department",
     description:
-      "We provide 24/7 proactive monitoring, help desk support, and comprehensive IT management for businesses of all sizes. Think of us as your dedicated IT team — without the overhead.",
+      "We provide 24/7 proactive monitoring, help desk support, and comprehensive IT management for businesses of all sizes.",
     features: [
       "24/7 Help Desk & Remote Support",
       "Server & Network Monitoring",
@@ -28,7 +28,7 @@ const services = [
     title: "Microsoft 365",
     tagline: "Collaboration without boundaries",
     description:
-      "From initial migration to ongoing administration, we ensure your Microsoft 365 environment is secure, optimized, and delivering maximum productivity for your team.",
+      "From initial migration to ongoing administration, we ensure your Microsoft 365 environment is secure, optimized, and delivering maximum productivity.",
     features: [
       "Tenant Setup & Configuration",
       "Email Migration (Exchange Online)",
@@ -68,7 +68,7 @@ const services = [
     title: "Cloud Infrastructure",
     tagline: "Scalable, resilient, cost-effective",
     description:
-      "We design and manage Azure and hybrid cloud environments that are optimized for performance, security, and cost — tailored to your business needs.",
+      "We design and manage Azure and hybrid cloud environments optimized for performance, security, and cost.",
     features: [
       "Azure Architecture & Migration",
       "Hybrid Cloud Design",
@@ -88,7 +88,7 @@ const services = [
     title: "Active Directory & Identity",
     tagline: "Secure identity management",
     description:
-      "User provisioning, group policy, conditional access, and identity lifecycle management for on-prem AD and Azure AD/Entra ID environments.",
+      "User provisioning, group policy, conditional access, and identity lifecycle management for on-prem AD and Azure AD/Entra ID.",
     features: [
       "User Lifecycle Management",
       "Group Policy & OU Design",
@@ -108,7 +108,7 @@ const services = [
     title: "Intune & Endpoint Management",
     tagline: "Zero-touch device deployment",
     description:
-      "Streamline device management with Microsoft Intune. From enrollment to compliance, we manage the full lifecycle of your endpoints.",
+      "Streamline device management with Microsoft Intune. From enrollment to compliance, we manage the full lifecycle.",
     features: [
       "Intune Tenant Configuration",
       "Windows Autopilot Deployment",
@@ -128,7 +128,7 @@ const services = [
     title: "Automation & Scripting",
     tagline: "Eliminate repetitive tasks",
     description:
-      "PowerShell, Power Automate, and Azure Logic Apps to automate your IT workflows — from user onboarding to compliance reporting.",
+      "PowerShell, Power Automate, and Azure Logic Apps to automate your IT workflows — from onboarding to compliance reporting.",
     features: [
       "PowerShell Automation Scripts",
       "Power Automate Workflows",
@@ -175,12 +175,12 @@ export default function Services() {
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-brand-cyan text-sm font-semibold uppercase tracking-wider font-mono">
+            <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
               Our Services
             </span>
             <h1 className="font-heading font-bold text-5xl sm:text-6xl text-white mt-3 mb-6">
               End-to-End IT{" "}
-              <span className="text-brand-cyan">Solutions</span>
+              <span className="text-brand-green">Solutions</span>
             </h1>
             <p className="text-lg text-slate-300 leading-relaxed">
               From day-to-day support to strategic cloud architecture, we provide the full spectrum
@@ -191,26 +191,26 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-brand-dark">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {services.map((service) => (
               <div
                 key={service.id}
                 id={service.id}
-                className="group p-8 rounded-2xl bg-brand-navy border border-white/10 hover:border-brand-cyan/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-cyan/5 flex flex-col"
+                className="group p-8 rounded-2xl bg-gray-50 border border-brand-navy/10 hover:border-brand-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-brand-green/5 flex flex-col"
               >
-                <div className="w-16 h-16 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan mb-6 group-hover:bg-brand-cyan group-hover:text-brand-navy transition-all">
+                <div className="w-16 h-16 rounded-xl bg-brand-greenLight flex items-center justify-center text-brand-green mb-6 group-hover:bg-brand-green group-hover:text-white transition-all">
                   {service.icon}
                 </div>
-                <h3 className="font-heading font-semibold text-xl text-white mb-1">{service.title}</h3>
-                <p className="text-brand-cyan text-sm font-medium mb-3">{service.tagline}</p>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">{service.description}</p>
+                <h3 className="font-heading font-semibold text-xl text-brand-navy mb-1">{service.title}</h3>
+                <p className="text-brand-green text-sm font-medium mb-3">{service.tagline}</p>
+                <p className="text-brand-text text-sm leading-relaxed mb-6 flex-grow">{service.description}</p>
 
                 <ul className="space-y-2 mb-6">
                   {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-slate-300">
-                      <svg className="w-4 h-4 text-brand-cyan flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <li key={feature} className="flex items-center gap-2 text-sm text-brand-text">
+                      <svg className="w-4 h-4 text-brand-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       {feature}
@@ -220,7 +220,7 @@ export default function Services() {
 
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 text-brand-cyan text-sm font-semibold hover:gap-3 transition-all mt-auto"
+                  className="inline-flex items-center gap-2 text-brand-green text-sm font-semibold hover:gap-3 transition-all mt-auto"
                 >
                   Enquire now
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -235,7 +235,7 @@ export default function Services() {
 
       {/* CTA */}
       <section className="py-24 bg-brand-navy relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/10 to-brand-gold/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-green/10 to-brand-green/5" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading font-bold text-4xl sm:text-5xl text-white mb-6">
             Need a Custom Solution?
@@ -246,7 +246,7 @@ export default function Services() {
           </p>
           <Link
             href="/contact"
-            className="inline-block px-8 py-4 bg-brand-cyan text-brand-navy font-semibold rounded-lg hover:bg-brand-cyan-dark transition-all hover:shadow-xl hover:shadow-brand-cyan/20"
+            className="inline-block px-8 py-4 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-greenDark transition-all hover:shadow-xl hover:shadow-brand-green/20"
           >
             Schedule a Free Consultation
           </Link>

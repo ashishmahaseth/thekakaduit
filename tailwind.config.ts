@@ -10,27 +10,28 @@ const config: Config = {
     extend: {
       colors: {
         kakadu: {
-          50: '#eef5ff',
-          100: '#d9e8ff',
-          200: '#bcd7ff',
-          300: '#8fbfff',
-          400: '#5b9fff',
-          500: '#2b7fff',
-          600: '#1a5fe0',
-          700: '#1447b8',
-          800: '#153896',
-          900: '#163174',
-          950: '#0c1f47',
+          50: '#e8f7f0',
+          100: '#c5e9d4',
+          200: '#9ed9b5',
+          300: '#6ec493',
+          400: '#42b074',
+          500: '#1BAE70',
+          600: '#169962',
+          700: '#128554',
+          800: '#0e6b42',
+          900: '#0a5534',
+          950: '#073d25',
         },
         brand: {
-          navy: '#0a1e3d',
-          navyLight: '#0f2b55',
-          cyan: '#00c2e0',
-          cyanDark: '#009bb3',
+          navy: '#14261C',
+          navyLight: '#1a3328',
+          green: '#1BAE70',
+          greenDark: '#169962',
+          greenLight: '#e8f7f0',
           gold: '#f0b90b',
-          goldDark: '#d4a508',
           slate: '#f4f6f9',
           dark: '#1a1f36',
+          text: '#4A5449',
         },
       },
       fontFamily: {
@@ -39,7 +40,7 @@ const config: Config = {
         mono: ['JetBrains Mono', 'monospace'],
       },
       backgroundImage: {
-        'grid-pattern': 'linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)',
+        'grid-pattern': 'linear-gradient(to right, rgba(27,174,112,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(27,174,112,0.04) 1px, transparent 1px)',
       },
       backgroundSize: {
         'grid': '48px 48px',
@@ -47,11 +48,21 @@ const config: Config = {
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 6s ease-in-out infinite',
+        'helpdesk-pulse': 'helpdesk-pulse 2s ease-in-out infinite',
+        'helpdesk-glow': 'helpdesk-glow 2s ease-in-out infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-12px)' },
+        },
+        'helpdesk-pulse': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.05)' },
+        },
+        'helpdesk-glow': {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(27, 174, 112, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(27, 174, 112, 0.6)' },
         },
       },
     },

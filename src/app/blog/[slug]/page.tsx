@@ -138,30 +138,30 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     <>
       <Navbar />
 
-      <article className="pt-32 pb-24 bg-brand-navy min-h-screen">
+      <article className="pt-32 pb-24 bg-white min-h-screen">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-slate-400 mb-8">
-            <Link href="/" className="hover:text-brand-cyan transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-sm text-brand-text mb-8">
+            <Link href="/" className="hover:text-brand-green transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/blog" className="hover:text-brand-cyan transition-colors">Blog</Link>
+            <Link href="/blog" className="hover:text-brand-green transition-colors">Blog</Link>
             <span>/</span>
-            <span className="text-brand-cyan">{post.title.slice(0, 40)}...</span>
+            <span className="text-brand-green">{post.title.slice(0, 40)}...</span>
           </nav>
 
           {/* Header */}
           <header className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <span className="px-3 py-1 rounded-full bg-brand-cyan/10 text-brand-cyan text-xs font-mono font-semibold uppercase tracking-wider">
+              <span className="px-3 py-1 rounded-full bg-brand-greenLight text-brand-green text-xs font-mono font-semibold uppercase tracking-wider">
                 {post.category}
               </span>
-              <span className="text-sm text-slate-500">{post.readTime}</span>
+              <span className="text-sm text-brand-text">{post.readTime}</span>
             </div>
-            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-white mb-4 leading-tight">
+            <h1 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mb-4 leading-tight">
               {post.title}
             </h1>
-            <p className="text-lg text-slate-300 mb-6">{post.excerpt}</p>
-            <div className="text-sm text-slate-500">
+            <p className="text-lg text-brand-text mb-6">{post.excerpt}</p>
+            <div className="text-sm text-brand-text">
               {new Date(post.date).toLocaleDateString("en-AU", {
                 day: "numeric",
                 month: "long",
@@ -171,31 +171,31 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           </header>
 
           {/* Content */}
-          <div className="prose prose-invert prose-lg max-w-none">
+          <div className="prose prose-lg max-w-none">
             {post.content.map((block, i) => {
               if (block.startsWith("## ")) {
                 return (
-                  <h2 key={i} className="font-heading font-bold text-2xl text-white mt-12 mb-4">
+                  <h2 key={i} className="font-heading font-bold text-2xl text-brand-navy mt-12 mb-4">
                     {block.replace("## ", "")}
                   </h2>
                 );
               }
               if (block.startsWith("- ")) {
                 return (
-                  <li key={i} className="text-slate-300 ml-4">
+                  <li key={i} className="text-brand-text ml-4">
                     {block.replace("- ", "")}
                   </li>
                 );
               }
               if (block.match(/^\d+\./)) {
                 return (
-                  <li key={i} className="text-slate-300 ml-4">
+                  <li key={i} className="text-brand-text ml-4">
                     {block.replace(/^\d+\.\s*/, "")}
                   </li>
                 );
               }
               return (
-                <p key={i} className="text-slate-300 leading-relaxed mb-6">
+                <p key={i} className="text-brand-text leading-relaxed mb-6">
                   {block}
                 </p>
               );
@@ -203,10 +203,10 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           </div>
 
           {/* Back link */}
-          <div className="mt-16 pt-8 border-t border-white/10">
+          <div className="mt-16 pt-8 border-t border-brand-navy/10">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-brand-cyan hover:text-brand-cyan-dark transition-colors font-medium"
+              className="inline-flex items-center gap-2 text-brand-green hover:text-brand-greenDark transition-colors font-medium"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
