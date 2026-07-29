@@ -49,8 +49,8 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              Empowering Canberra businesses through innovation and expertise.
-              Your trusted MSP for end-to-end IT solutions.
+              Empowering Australian businesses through innovation and expertise.
+              Your trusted MSP for end-to-end IT solutions across Australia.
             </p>
             <div className="flex gap-3">
               {["Facebook", "Twitter", "Instagram", "LinkedIn"].map((social) => (

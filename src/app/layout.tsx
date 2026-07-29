@@ -8,25 +8,26 @@ const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" }
 
 export const metadata: Metadata = {
   title: {
-    default: "The Kakadu IT Solutions | Managed IT Services Canberra",
+    default: "The Kakadu IT Solutions | Managed IT Services Australia",
     template: "%s | The Kakadu IT Solutions",
   },
   description:
-    "The Kakadu IT Solutions is a Canberra-based Managed Service Provider (MSP) delivering end-to-end IT support, Microsoft 365, Azure, cybersecurity, and cloud infrastructure for Australian businesses.",
+    "The Kakadu IT Solutions is an Australia-wide Managed Service Provider (MSP) delivering end-to-end IT support, Microsoft 365, Azure, cybersecurity, and cloud infrastructure for Australian businesses.",
   keywords: [
-    "IT support Canberra",
-    "managed IT services",
-    "MSP Canberra",
+    "IT support Australia",
+    "managed IT services Australia",
     "Microsoft 365",
     "Azure",
-    "cybersecurity",
-    "IT support Australia",
+    "cybersecurity Australia",
+    "cloud infrastructure",
+    "MSP Australia",
+    "licensed IT professionals",
     "Kakadu IT",
   ],
   openGraph: {
-    title: "The Kakadu IT Solutions | Managed IT Services Canberra",
+    title: "The Kakadu IT Solutions | Managed IT Services Australia",
     description:
-      "Empowering Canberra businesses through innovation and expertise. 24/7 managed IT support, cloud, cybersecurity, and more.",
+      "Australia-wide managed IT services delivered by highly experienced, licensed professionals. 24/7 support, cloud, cybersecurity, and Microsoft 365 solutions.",
     type: "website",
     locale: "en_AU",
   },

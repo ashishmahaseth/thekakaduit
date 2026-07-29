@@ -122,13 +122,13 @@ const testimonials = [
     quote:
       "The Kakadu IT transformed our IT operations. Their proactive approach means we rarely even think about IT — it just works.",
     author: "Sarah Chen",
-    role: "CFO, Canberra Business Group",
+    role: "CFO, National Retail Group",
   },
   {
     quote:
       "Professional, responsive, and deeply knowledgeable. They managed our Microsoft 365 migration with zero downtime.",
     author: "Michael Torres",
-    role: "Operations Manager, TechStart Canberra",
+    role: "Operations Manager, TechStart Australia",
   },
   {
     quote:
@@ -193,7 +193,7 @@ export default function Home() {
             <div className="animate-fade-in-up">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-sm font-medium mb-8">
                 <span className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
-                Canberra&apos;s Trusted IT Partner
+                Australia&apos;s Trusted IT Partner
               </div>
 
               <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight">
@@ -201,7 +201,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl">
-                Empowering Excellence, Embracing Innovation. The Kakadu IT Solutions delivers end-to-end managed IT services, cloud infrastructure, cybersecurity, and Microsoft 365 solutions for Australian businesses.
+                Australia-wide managed IT services delivered by highly experienced, licensed professionals. End-to-end cloud infrastructure, cybersecurity, and Microsoft 365 solutions for Australian businesses.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -328,6 +328,9 @@ export default function Home() {
             <h2 className="font-heading font-bold text-4xl sm:text-5xl text-white mt-3 mb-4">
               Mission & Vision
             </h2>
+            <p className="text-slate-300 max-w-2xl mx-auto text-lg">
+              Australia-wide IT excellence delivered by licensed professionals you can trust.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 animate-fade-in-up delay-200">
@@ -481,7 +484,7 @@ export default function Home() {
                 </p>
                 <div>
                   <div className="font-heading font-semibold text-brand-navy">Sarah Chen</div>
-                  <div className="text-sm text-brand-text">CFO, Canberra Business Group</div>
+                  <div className="text-sm text-brand-text">CFO, National Retail Group</div>
                 </div>
               </div>
             </div>
@@ -497,7 +500,7 @@ export default function Home() {
               Testimonials
             </span>
             <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3 mb-4">
-              Trusted by Canberra Businesses
+              Trusted by Australian Businesses
             </h2>
           </div>
 

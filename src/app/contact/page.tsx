@@ -160,7 +160,7 @@ export default function Contact() {
                     <span>
                       15 Dorrie Crescent<br />
                       Moncrieff ACT 2914<br />
-                      Canberra, Australia
+                      Australia
                     </span>
                   </div>
                   <div className="flex items-center gap-3">

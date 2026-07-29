@@ -7,7 +7,7 @@ const projects = [
     title: "Microsoft 365 Enterprise Migration",
     category: "Cloud Migration",
     description:
-      "Seamless migration of 500+ mailboxes from on-prem Exchange to Microsoft 365 for a Canberra government contractor. Zero data loss, zero downtime.",
+      "Seamless migration of 500+ mailboxes from on-prem Exchange to Microsoft 365 for an Australian government contractor. Zero data loss, zero downtime.",
     tech: ["Exchange Online", "Azure AD", "PowerShell", "Intune"],
     result: "Zero downtime · 500+ mailboxes migrated · 100% data integrity",
   },

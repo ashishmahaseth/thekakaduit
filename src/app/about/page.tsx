@@ -54,13 +54,13 @@ export default function About() {
                 Our Story
               </span>
               <h2 className="font-heading font-bold text-4xl text-brand-navy mt-3 mb-6">
-                From Canberra Roots to National Reach
+                National Reach
               </h2>
               <div className="space-y-4 text-brand-text leading-relaxed">
                 <p>
-                  Founded in Canberra, ACT, The Kakadu IT Solutions started as a one-person operation
+                  Founded in Australia, The Kakadu IT Solutions started as a one-person operation
                   with a big vision: to deliver the kind of IT support that larger enterprises take for
-                  granted — but make it accessible to small and medium businesses.
+                  granted — but make it accessible to small and medium businesses across the country.
                 </p>
                 <p>
                   Today, we manage IT infrastructure for 500+ endpoints across multiple client
