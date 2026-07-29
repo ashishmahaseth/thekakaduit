@@ -1,136 +1,250 @@
-import ServiceCard from "@/components/ServiceCard";
-import DynamicText from "@/components/DynamicText";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+const services = [
+  {
+    id: "managed-it",
+    title: "Managed IT Services",
+    subtitle: "Your Complete IT Department",
+    description:
+      "Predictable pricing, clear SLAs, and a proactive NOC to keep your people productive and safe.",
+    features: [
+      "24/7 Monitoring & Alerts",
+      "Helpdesk & Support",
+      "Patch Management",
+      "Remote & On-site Support",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+      </svg>
+    ),
+  },
+  {
+    id: "cybersecurity",
+    title: "Cybersecurity",
+    subtitle: "Security First Approach",
+    description:
+      "Enterprise-grade protection aligned to Essential 8 and ISO 27001 frameworks with 24/7 monitoring.",
+    features: [
+      "Endpoint Protection",
+      "Firewall Management",
+      "Threat Detection",
+      "Compliance Frameworks",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    ),
+  },
+  {
+    id: "cloud",
+    title: "Cloud Infrastructure",
+    subtitle: "Azure & Hybrid Cloud",
+    description:
+      "Strategic cloud migration with average 35% cost reduction and 60% performance improvement.",
+    features: [
+      "Azure Architecture",
+      "Backup & Disaster Recovery",
+      "Cloud Optimisation",
+      "Hybrid Solutions",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+      </svg>
+    ),
+  },
+  {
+    id: "m365",
+    title: "Microsoft 365",
+    subtitle: "Modern Workplace",
+    description:
+      "Microsoft 365, Teams, and collaboration tools with comprehensive change management and adoption.",
+    features: [
+      "Exchange & Outlook",
+      "Teams Collaboration",
+      "SharePoint Intranets",
+      "Power Platform",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+      </svg>
+    ),
+  },
+  {
+    id: "automation",
+    title: "Automation & Scripting",
+    subtitle: "Streamline Operations",
+    description:
+      "PowerShell, Power Automate, and Azure Logic Apps to eliminate repetitive tasks and reduce errors.",
+    features: [
+      "PowerShell Scripts",
+      "Power Automate",
+      "Azure Logic Apps",
+      "Process Automation",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+  },
+  {
+    id: "networking",
+    title: "Network Infrastructure",
+    subtitle: "Reliable Connectivity",
+    description:
+      "Enterprise networking design, deployment, and management for secure, high-performance infrastructure.",
+    features: [
+      "Network Design",
+      "Switch & Router Config",
+      "VPN & Remote Access",
+      "Network Monitoring",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "The Kakadu IT transformed our IT operations. Their proactive approach means we rarely even think about IT — it just works.",
+    author: "Sarah Chen",
+    role: "CFO, Canberra Business Group",
+  },
+  {
+    quote:
+      "Professional, responsive, and deeply knowledgeable. They managed our Microsoft 365 migration with zero downtime.",
+    author: "Michael Torres",
+    role: "Operations Manager, TechStart Canberra",
+  },
+  {
+    quote:
+      "Their ISO 27001-aligned security practices gave us confidence that our data is protected. Highly recommended.",
+    author: "David Park",
+    role: "IT Director, National Healthcare Group",
+  },
+];
+
+const values = [
+  {
+    letter: "E",
+    title: "Excellence",
+    desc: "We deliver enterprise-grade solutions with meticulous attention to detail and quality.",
+  },
+  {
+    letter: "X",
+    title: "eXpertise",
+    desc: "Our team brings deep technical knowledge across Microsoft, Azure, and security platforms.",
+  },
+  {
+    letter: "C",
+    title: "Care",
+    desc: "We treat your business as our own, with genuine commitment to your success.",
+  },
+  {
+    letter: "E",
+    title: "Efficiency",
+    desc: "We automate and optimise to deliver maximum value with minimal disruption.",
+  },
+  {
+    letter: "L",
+    title: "Leadership",
+    desc: "We guide your IT strategy, not just maintain it — proactive, not reactive.",
+  },
+  {
+    letter: "L",
+    title: "Learning",
+    desc: "Continuous improvement through certifications, training, and emerging technologies.",
+  },
+];
+
 export default function Home() {
-  const stats = [
-    { number: "500+", label: "Clients Served" },
-    { number: "99.9%", label: "Uptime SLA" },
-    { number: "24/7", label: "Support Coverage" },
-    { number: "15+", label: "Years Experience" },
-  ];
-
-  const services = [
-    {
-      title: "Managed IT Support",
-      description:
-        "Comprehensive 24/7 IT management for your business. We monitor, maintain, and optimize your IT infrastructure so you can focus on growth.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Microsoft 365",
-      description:
-        "Complete Microsoft 365 deployment, migration, and management. From Exchange to Teams, we ensure your collaboration tools run flawlessly.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Cybersecurity",
-      description:
-        "Protect your business with enterprise-grade security. Endpoint protection, firewall management, threat detection, and compliance frameworks.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Cloud Infrastructure",
-      description:
-        "Azure and hybrid cloud architecture designed for reliability, scalability, and cost-efficiency. We build the foundation for your digital future.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-        </svg>
-      ),
-    },
-  ];
-
-  const testimonials = [
-    {
-      quote: "The Kakadu IT transformed our IT operations. Their proactive approach means we rarely even think about IT — it just works.",
-      author: "Sarah Chen",
-      role: "CFO, Canberra Business Group",
-      rating: 5,
-    },
-    {
-      quote: "Professional, responsive, and deeply knowledgeable. They managed our Microsoft 365 migration with zero downtime.",
-      author: "Michael Torres",
-      role: "Operations Manager, TechStart Canberra",
-      rating: 5,
-    },
-  ];
+  const [activeService, setActiveService] = useState(0);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   return (
     <>
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-brand-navy overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center bg-brand-navy overflow-hidden">
+        {/* Background effects */}
         <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/90 via-brand-navy/70 to-brand-navy" />
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-green/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "2s" }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-sm font-medium mb-8 animate-fade-in-up">
-            <span className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
-            Canberra&apos;s Trusted IT Partner
-          </div>
-
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-5xl mx-auto animate-fade-in-up delay-200">
-            Unlocking Success in the 
-            <span className="text-brand-green">Digital Age</span>
-            <br />
-            <DynamicText />
-          </h1>
-
-          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-up delay-300">
-            Empowering Excellence, Embracing Innovation.
-            The Kakadu IT Solutions delivers end-to-end managed IT services, cloud infrastructure,
-            cybersecurity, and Microsoft 365 solutions for Australian businesses.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-400">
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-greenDark transition-all hover:shadow-xl hover:shadow-brand-green/20"
-            >
-              Learn More
-            </Link>
-            <Link
-              href="/services"
-              className="px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:border-brand-green hover:text-brand-green transition-all"
-            >
-              Our Services
-            </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto animate-fade-in-up delay-500">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="font-heading font-bold text-3xl sm:text-4xl text-brand-green mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">
-                  {stat.label}
-                </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left content */}
+            <div className="animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-sm font-medium mb-8">
+                <span className="w-2 h-2 bg-brand-green rounded-full animate-pulse" />
+                Canberra&apos;s Trusted IT Partner
               </div>
-            ))}
+
+              <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+                Unlocking Success in the <span className="text-brand-green">Digital Age</span>
+              </h1>
+
+              <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl">
+                Empowering Excellence, Embracing Innovation. The Kakadu IT Solutions delivers end-to-end managed IT services, cloud infrastructure, cybersecurity, and Microsoft 365 solutions for Australian businesses.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="px-8 py-4 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-greenDark transition-all hover:shadow-xl hover:shadow-brand-green/20 text-center"
+                >
+                  Book a Call
+                </Link>
+                <Link
+                  href="/services"
+                  className="px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:border-brand-green hover:text-brand-green transition-all text-center"
+                >
+                  Our Services
+                </Link>
+              </div>
+            </div>
+
+            {/* Right - Stats Grid */}
+            <div className="grid grid-cols-2 gap-4 animate-fade-in delay-300">
+              {[
+                { value: "99.9%", label: "System Uptime" },
+                { value: "500+", label: "Clients Served" },
+                { value: "24/7", label: "Support Coverage" },
+                { value: "15+", label: "Years Experience" },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-brand-green/30 transition-all duration-300 hover:bg-white/10 group"
+                >
+                  <div className="font-heading font-bold text-3xl sm:text-4xl text-brand-green mb-2 group-hover:scale-110 transition-transform">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-slate-400 uppercase tracking-wider font-medium">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
+        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <svg className="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -138,7 +252,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* Services Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in-up">
@@ -146,38 +260,156 @@ export default function Home() {
               What We Do
             </span>
             <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3 mb-4">
-              Comprehensive IT Solutions
+              Managed IT Services That Scale
             </h2>
             <p className="text-brand-text max-w-2xl mx-auto text-lg">
-              From day-to-day support to strategic cloud architecture, we provide the full spectrum
-              of IT services your business needs.
+              Predictable pricing, clear SLAs, and a proactive NOC to keep your people productive and safe.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <ServiceCard key={service.title} service={service} index={index} />
+          {/* Service Tabs */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12 animate-fade-in-up delay-200">
+            {services.map((service, idx) => (
+              <button
+                key={service.id}
+                onClick={() => setActiveService(idx)}
+                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${
+                  activeService === idx
+                    ? "bg-brand-navy text-white shadow-lg"
+                    : "bg-brand-slate text-brand-text hover:bg-brand-navy/10"
+                }`}
+              >
+                {service.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Active Service Detail */}
+          <div className="max-w-4xl mx-auto animate-fade-in delay-300">
+            <div className="p-8 lg:p-12 rounded-3xl bg-gradient-to-br from-brand-slate to-white border border-brand-navy/10 shadow-xl">
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center text-brand-green flex-shrink-0">
+                  {services[activeService].icon}
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-heading font-bold text-2xl text-brand-navy mb-2">
+                    {services[activeService].title}
+                  </h3>
+                  <p className="text-brand-text text-lg mb-6">
+                    {services[activeService].description}
+                  </p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {services[activeService].features.map((feature) => (
+                      <div key={feature} className="flex items-center gap-2">
+                        <div className="w-5 h-5 rounded-full bg-brand-green/20 flex items-center justify-center flex-shrink-0">
+                          <svg className="w-3 h-3 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span className="text-sm text-brand-text">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-24 bg-brand-navy relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-20" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
+              Our Purpose
+            </span>
+            <h2 className="font-heading font-bold text-4xl sm:text-5xl text-white mt-3 mb-4">
+              Mission & Vision
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 animate-fade-in-up delay-200">
+            <div className="p-8 lg:p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-brand-green/30 transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-brand-green/20 flex items-center justify-center text-brand-green mb-6">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="font-heading font-bold text-2xl text-white mb-4">Our Mission</h3>
+              <p className="text-slate-300 leading-relaxed">
+                To empower Australian businesses to achieve their full potential by delivering proactive, personalised IT solutions powered by human expertise and AI-driven efficiency. Your success is our success.
+              </p>
+            </div>
+
+            <div className="p-8 lg:p-10 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-brand-green/30 transition-all duration-300">
+              <div className="w-12 h-12 rounded-xl bg-brand-green/20 flex items-center justify-center text-brand-green mb-6">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <h3 className="font-heading font-bold text-2xl text-white mb-4">Our Vision</h3>
+              <p className="text-slate-300 leading-relaxed">
+                To transform the IT industry by proving that exceptional technology support can and should come with genuine human care. A future where every business has access to enterprise-grade expertise delivered with heart.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-24 bg-brand-slate">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
+              Our Principles
+            </span>
+            <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3 mb-4">
+              The EXCELLENCE Values
+            </h2>
+            <p className="text-brand-text max-w-2xl mx-auto text-lg">
+              These six core principles drive everything we do and define who we are as a company.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 animate-fade-in-up delay-200">
+            {values.map((value, idx) => (
+              <div
+                key={value.letter}
+                className="group p-6 rounded-2xl bg-white border border-brand-navy/5 hover:border-brand-green/30 transition-all duration-300 hover:shadow-lg hover:shadow-brand-green/5 text-center"
+                style={{ animationDelay: `${idx * 100}ms` }}
+              >
+                <div className="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green font-heading font-bold text-xl mx-auto mb-4 group-hover:bg-brand-green group-hover:text-white transition-all duration-300">
+                  {value.letter}
+                </div>
+                <h4 className="font-heading font-semibold text-brand-navy mb-2">
+                  {value.title}
+                </h4>
+                <p className="text-brand-text text-xs leading-relaxed">
+                  {value.desc}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 bg-gray-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="animate-fade-in-up">
               <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
                 Why The Kakadu IT
               </span>
               <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3 mb-6">
-                Your IT Partner, 
+                Your IT Partner,<br />
                 <span className="text-brand-green">Not Just a Vendor</span>
               </h2>
               <p className="text-brand-text text-lg mb-8 leading-relaxed">
-                We don&apos;t just fix problems — we prevent them. Our proactive approach means
-                your systems stay secure, compliant, and running at peak performance.
+                We don&apos;t just fix problems — we prevent them. Our proactive approach means your systems stay secure, compliant, and running at peak performance.
               </p>
 
               <div className="space-y-6">
@@ -188,11 +420,11 @@ export default function Home() {
                   },
                   {
                     title: "Australian Based Support",
-                    desc: "Local team, local knowledge. No overseas call centers — you speak directly to engineers who understand your environment.",
+                    desc: "Local team, local knowledge. No overseas call centres — you speak directly to engineers.",
                   },
                   {
-                    title: "Security First",
-                    desc: "ISO 27001 aligned practices. We build security into every layer of your IT infrastructure.",
+                    title: "ISO 27001 Aligned",
+                    desc: "Information security management practices aligned to international standards.",
                   },
                   {
                     title: "Scalable Solutions",
@@ -214,48 +446,42 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right side - testimonial / trust card */}
-            <div className="space-y-6">
-              <div className="p-8 rounded-2xl bg-white border border-brand-navy/10 shadow-sm">
+            {/* Stats / Trust Card */}
+            <div className="space-y-6 animate-fade-in delay-300">
+              <div className="p-8 rounded-3xl bg-gradient-to-br from-brand-navy to-brand-navy-light border border-brand-navy/50 shadow-2xl">
+                <div className="grid grid-cols-2 gap-6">
+                  {[
+                    { value: "< 2 min", label: "Avg Response Time" },
+                    { value: "99.2%", label: "Client Satisfaction" },
+                    { value: "500+", label: "Businesses Served" },
+                    { value: "15+", label: "Years Experience" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="text-center">
+                      <div className="font-heading font-bold text-2xl text-brand-green mb-1">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-slate-400 uppercase tracking-wider">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-white border border-brand-navy/10 shadow-lg">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034z" />
                     </svg>
                   ))}
                 </div>
                 <p className="text-brand-text text-lg mb-6 leading-relaxed italic">
-                  &ldquo;The Kakadu IT transformed our IT operations. Their proactive approach means
-                  we rarely even think about IT — it just works.&rdquo;
+                  &ldquo;The Kakadu IT transformed our IT operations. Their proactive approach means we rarely even think about IT — it just works.&rdquo;
                 </p>
                 <div>
                   <div className="font-heading font-semibold text-brand-navy">Sarah Chen</div>
                   <div className="text-sm text-brand-text">CFO, Canberra Business Group</div>
-                </div>
-              </div>
-
-              {/* Google Reviews placeholder */}
-              <div className="p-6 rounded-2xl bg-white border border-brand-navy/10 flex items-center gap-4 shadow-sm">
-                <div className="w-14 h-14 rounded-full bg-white border border-brand-navy/10 flex items-center justify-center">
-                  <svg className="w-8 h-8" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.3v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l2.85 2.22c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-heading font-semibold text-brand-navy">Google Reviews</div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-0.5">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <span className="text-sm text-brand-text">5.0 · 24 reviews</span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -264,70 +490,92 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-brand-slate">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fade-in-up">
             <span className="text-brand-green text-sm font-semibold uppercase tracking-wider font-mono">
               Testimonials
             </span>
-            <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3">
+            <h2 className="font-heading font-bold text-4xl sm:text-5xl text-brand-navy mt-3 mb-4">
               Trusted by Canberra Businesses
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {testimonials.map((t) => (
+          <div className="relative max-w-4xl mx-auto animate-fade-in-up delay-200">
+            <div className="overflow-hidden">
               <div
-                key={t.author}
-                className="p-8 rounded-2xl bg-gray-50 border border-brand-navy/10"
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${activeTestimonial * 100}%)` }}
               >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-brand-text text-lg mb-6 leading-relaxed italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div>
-                  <div className="font-heading font-semibold text-brand-navy">{t.author}</div>
-                  <div className="text-sm text-brand-text">{t.role}</div>
-                </div>
+                {testimonials.map((t) => (
+                  <div key={t.author} className="w-full flex-shrink-0 px-4">
+                    <div className="bg-white p-8 lg:p-12 rounded-3xl shadow-lg border border-brand-navy/5">
+                      <div className="flex gap-1 mb-6">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <p className="text-brand-text text-xl mb-8 leading-relaxed italic">
+                        &ldquo;{t.quote}&rdquo;
+                      </p>
+                      <div>
+                        <div className="font-heading font-semibold text-brand-navy text-lg">{t.author}</div>
+                        <div className="text-sm text-brand-text">{t.role}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Navigation */}
+            <div className="flex justify-center gap-3 mt-8">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveTestimonial(idx)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    activeTestimonial === idx
+                      ? "bg-brand-green w-8"
+                      : "bg-brand-navy/20 hover:bg-brand-navy/40"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA Section */}
       <section className="py-24 bg-brand-navy relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-green/10 to-brand-green/5" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-20" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-green/5 rounded-full blur-3xl" />
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 animate-scale-in">
           <h2 className="font-heading font-bold text-4xl sm:text-5xl text-white mb-6">
             Ready to Transform Your IT?
           </h2>
           <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
-            Join 500+ Australian businesses that trust The Kakadu IT Solutions for their
-            technology infrastructure. Get a free consultation today.
+            Join 500+ Australian businesses that trust The Kakadu IT Solutions for their managed IT services, cloud infrastructure, and cybersecurity needs.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-400">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="px-8 py-4 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-greenDark transition-all hover:shadow-xl hover:shadow-brand-green/20"
             >
               Schedule a Consultation
             </Link>
-            <a
+            <Link
               href="tel:0251144800"
-              className="px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:border-brand-green hover:text-brand-green transition-all flex items-center gap-2"
+              className="px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:border-brand-green hover:text-brand-green transition-all inline-flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               Call Us Now
-            </a>
+            </Link>
           </div>
         </div>
       </section>
