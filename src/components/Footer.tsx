@@ -35,7 +35,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-6">
               <div className="relative w-10 h-10">
                 <Image
-                  src="/images/kakadu-logo.png"
+                  src="/images/kakadu-logo.jpg"
                   alt="Kakadu IT Logo"
                   fill
                   className="object-contain"
