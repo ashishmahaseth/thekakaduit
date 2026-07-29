@@ -14,12 +14,14 @@ const services = [
     title: "Managed IT Services",
     subtitle: "Your Complete IT Department",
     description:
-      "Predictable pricing, clear SLAs, and a proactive NOC to keep your people productive and safe.",
+      "24/7 proactive monitoring, helpdesk support, patch management, and on-site assistance. We manage your entire IT environment so you can focus on running your business.",
     features: [
       "24/7 Monitoring & Alerts",
       "Helpdesk & Support",
       "Patch Management",
       "Remote & On-site Support",
+      "Service Desk (Tier 1-3)",
+      "Vendor Management",
     ],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -32,12 +34,14 @@ const services = [
     title: "Cybersecurity",
     subtitle: "Security First Approach",
     description:
-      "Enterprise-grade protection aligned to Essential 8 and ISO 27001 frameworks with 24/7 monitoring.",
+      "Enterprise-grade protection aligned to Essential 8 and ISO 27001 frameworks with 24/7 threat monitoring. We safeguard your data, endpoints, and network from evolving cyber threats.",
     features: [
       "Endpoint Protection",
       "Firewall Management",
-      "Threat Detection",
+      "Threat Detection & Response",
       "Compliance Frameworks",
+      "Security Awareness Training",
+      "Incident Response",
     ],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,12 +54,14 @@ const services = [
     title: "Cloud Infrastructure",
     subtitle: "Azure & Hybrid Cloud",
     description:
-      "Strategic cloud migration with average 35% cost reduction and 60% performance improvement.",
+      "Strategic cloud migration with average 35% cost reduction and 60% performance improvement. We design, deploy, and manage scalable cloud environments tailored to your business.",
     features: [
       "Azure Architecture",
       "Backup & Disaster Recovery",
       "Cloud Optimisation",
       "Hybrid Solutions",
+      "Migration Planning",
+      "Cost Management",
     ],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,12 +74,14 @@ const services = [
     title: "Microsoft 365",
     subtitle: "Modern Workplace",
     description:
-      "Microsoft 365, Teams, and collaboration tools with comprehensive change management and adoption.",
+      "Microsoft 365, Teams, and collaboration tools with comprehensive change management and user adoption programs to maximise productivity across your organisation.",
     features: [
       "Exchange & Outlook",
       "Teams Collaboration",
       "SharePoint Intranets",
       "Power Platform",
+      "User Training & Adoption",
+      "License Optimisation",
     ],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,12 +94,14 @@ const services = [
     title: "Automation & Scripting",
     subtitle: "Streamline Operations",
     description:
-      "PowerShell, Power Automate, and Azure Logic Apps to eliminate repetitive tasks and reduce errors.",
+      "PowerShell, Power Automate, and Azure Logic Apps to eliminate repetitive tasks, reduce human error, and create scalable workflows that save time and money.",
     features: [
-      "PowerShell Scripts",
-      "Power Automate",
+      "PowerShell Scripting",
+      "Power Automate Flows",
       "Azure Logic Apps",
       "Process Automation",
+      "Reporting Automation",
+      "Workflow Optimisation",
     ],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,16 +114,99 @@ const services = [
     title: "Network Infrastructure",
     subtitle: "Reliable Connectivity",
     description:
-      "Enterprise networking design, deployment, and management for secure, high-performance infrastructure.",
+      "Enterprise networking design, deployment, and management for secure, high-performance infrastructure. From cabling to cloud connectivity, we keep your business online.",
     features: [
       "Network Design",
       "Switch & Router Config",
       "VPN & Remote Access",
       "Network Monitoring",
+      "Wireless Solutions",
+      "SD-WAN Implementation",
     ],
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
+  {
+    id: "voip",
+    title: "Business Telephone System",
+    subtitle: "VoIP & Unified Communications",
+    description:
+      "Professional VoIP phone systems, SIP trunking, and unified communications platforms to streamline voice, video, and messaging across your organisation.",
+    features: [
+      "VoIP System Setup",
+      "SIP Trunking",
+      "Call Routing & IVR",
+      "Video Conferencing",
+      "Mobile Integration",
+      "Call Analytics",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3l2 5-2.5 1.5a11.11 11.11 0 005 5L12 12l5 2v3a2 2 0 01-2 2A16 16 0 013 5z" />
+      </svg>
+    ),
+  },
+  {
+    id: "graphics-design",
+    title: "Professional Graphics Design",
+    subtitle: "Brand Identity & Creative Assets",
+    description:
+      "Logos, marketing collateral, social media graphics, and brand identity design to help your business stand out with professional, cohesive visual communication.",
+    features: [
+      "Logo & Brand Identity",
+      "Marketing Collateral",
+      "Social Media Graphics",
+      "Presentation Design",
+      "Print & Digital Assets",
+      "Brand Style Guides",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
+  {
+    id: "digital-marketing",
+    title: "Digital Marketing",
+    subtitle: "Growth & Online Presence",
+    description:
+      "SEO, social media management, email marketing, and paid advertising strategies to grow your online presence and generate qualified leads for your business.",
+    features: [
+      "SEO & Content Strategy",
+      "Social Media Management",
+      "Email Marketing",
+      "Google Ads & PPC",
+      "Analytics & Reporting",
+      "Conversion Optimisation",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+      </svg>
+    ),
+  },
+  {
+    id: "it-consultation",
+    title: "IT Consultation",
+    subtitle: "Strategic Technology Advice",
+    description:
+      "Expert guidance on IT strategy, digital transformation, vendor selection, and technology roadmaps to align your IT investments with business goals.",
+    features: [
+      "IT Strategy & Planning",
+      "Digital Transformation",
+      "Vendor Selection",
+      "Technology Roadmaps",
+      "Risk Assessment",
+      "Budget Planning",
+    ],
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     ),
   },
