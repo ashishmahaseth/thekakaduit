@@ -87,7 +87,7 @@ export default function Home() {
           </div>
 
           <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight max-w-5xl mx-auto">
-            Unlocking Success in the{" "}
+            Unlocking Success in the 
             <span className="text-brand-green">Digital Age</span>
             <br />
             <span className="text-brand-green">Kakadu IT</span>
