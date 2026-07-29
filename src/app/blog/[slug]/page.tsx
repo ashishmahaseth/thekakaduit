@@ -127,6 +127,10 @@ const posts: Record<string, {
   },
 };
 
+export function generateStaticParams() {
+  return Object.keys(posts).map((slug) => ({ slug }));
+}
+
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const post = posts[params.slug];
 
@@ -172,7 +176,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
           {/* Content */}
           <div className="prose prose-lg max-w-none">
-            {post.content.map((block, i) => {
+            {post.content.map((block: string, i: number) => {
               if (block.startsWith("## ")) {
                 return (
                   <h2 key={i} className="font-heading font-bold text-2xl text-brand-navy mt-12 mb-4">
