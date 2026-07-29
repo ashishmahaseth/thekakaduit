@@ -1,5 +1,7 @@
 "use client";
 
+import DynamicHeading from "@/components/DynamicHeading";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -197,7 +199,7 @@ export default function Home() {
               </div>
 
               <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight">
-                Unlocking Success in the <span className="text-brand-green">Digital Age</span>
+                Unlocking Success in the <DynamicHeading />
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed max-w-2xl">
