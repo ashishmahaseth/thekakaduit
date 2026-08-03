@@ -13,16 +13,25 @@ const services = [
 ];
 
 const partners = [
-  "Microsoft",
-  "Google",
-  "Cisco",
-  "Dell",
-  "HP",
-  "Lenovo",
-  "Fortinet",
-  "Palo Alto",
-  "VMware",
-  "AWS",
+  { name: "Microsoft", slug: "microsoft" },
+  { name: "Google", slug: "google" },
+  { name: "Cisco", slug: "cisco" },
+  { name: "Dell", slug: "dell" },
+  { name: "HP", slug: "hp" },
+  { name: "Lenovo", slug: "lenovo" },
+  { name: "Fortinet", slug: "fortinet" },
+  { name: "Palo Alto Networks", slug: "paloaltonetworks" },
+  { name: "VMware", slug: "vmware" },
+  { name: "AWS", slug: "aws" },
+];
+
+const clients = [
+  { name: "National Retail Group", slug: "national-retail-group" },
+  { name: "TechStart Australia", slug: "techstart-australia" },
+  { name: "National Healthcare Group", slug: "national-healthcare-group" },
+  { name: "Australian Government Contractor", slug: "gov-contractor" },
+  { name: "EduCore Solutions", slug: "educore-solutions" },
+  { name: "FinTrust Capital", slug: "fintrust-capital" },
 ];
 
 export default function Footer() {
@@ -111,10 +120,10 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-slate-400">
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-brand-green mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span>15 Dorrie Crescent<br/>Moncrieff ACT 2914</span>
+                <span>15 Dorrie Crescent<br />Moncrieff ACT 2914</span>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-5 h-5 text-brand-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,19 +141,62 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Partners & Clients */}
+        {/* Partners Section */}
         <div className="mt-16 pt-8 border-t border-white/10">
-          <h4 className="font-heading font-semibold text-white text-center mb-6">Partners & Clients</h4>
+          <h4 className="font-heading font-semibold text-white text-center mb-6">Technology Partners</h4>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-70">
-            {partners.map((partner) => (
-              <span
-                key={partner}
-                className="text-slate-400 font-heading font-semibold text-sm tracking-wider hover:text-brand-green transition-colors"
+            {partners.map((partner) => {
+              const logoPath = `/thekakaduit/images/partners/${partner.slug}.png`;
+              return (
+              <div
+                key={partner.name}
+                className="relative h-10 w-32 grayscale hover:grayscale-0 hover:opacity-100 opacity-60 transition-all duration-300"
+                style={{ minHeight: "40px" }}
               >
-                {partner}
-              </span>
-            ))}
+                <Image
+                  src={logoPath}
+                  alt={partner.name}
+                  fill
+                  className="object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
+                />
+              </div>
+              );
+            })}
           </div>
+        </div>
+
+        {/* Clients Section */}
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <h4 className="font-heading font-semibold text-white text-center mb-6">Trusted By</h4>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-70">
+            {clients.map((client) => {
+              const logoPath = `/thekakaduit/images/clients/${client.slug}.png`;
+              return (
+              <div
+                key={client.name}
+                className="relative h-10 w-32 grayscale hover:grayscale-0 hover:opacity-100 opacity-60 transition-all duration-300"
+                style={{ minHeight: "40px" }}
+              >
+                <Image
+                  src={logoPath}
+                  alt={client.name}
+                  fill
+                  className="object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = "none";
+                  }}
+                />
+              </div>
+              );
+            })}
+          </div>
+          <p className="text-center text-slate-400 text-sm mt-6">
+            ...and 100+ businesses across Australia
+          </p>
         </div>
 
         {/* Bottom bar */}

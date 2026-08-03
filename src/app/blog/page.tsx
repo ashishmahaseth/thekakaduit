@@ -1,65 +1,69 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 
-const posts = [
-  {
-    slug: "m365-migration-guide",
-    title: "The Complete Microsoft 365 Migration Guide for Australian Businesses",
-    excerpt:
-      "Planning a Microsoft 365 migration? This comprehensive guide covers everything from initial assessment to post-migration optimization.",
-    date: "2025-06-15",
-    category: "Cloud",
-    readTime: "8 min read",
-  },
-  {
-    slug: "cybersecurity-checklist",
-    title: "10 Essential Cybersecurity Checks Every MSP Client Needs",
-    excerpt:
-      "Protect your business with this actionable cybersecurity checklist covering endpoint security, MFA, backups, and compliance.",
-    date: "2025-05-28",
-    category: "Security",
-    readTime: "6 min read",
-  },
-  {
-    slug: "azure-vs-on-prem",
-    title: "Azure vs On-Premises: Making the Right Choice for Your Business",
-    excerpt:
-      "Should you move to the cloud or stay on-premises? We break down the costs, benefits, and considerations for Australian businesses.",
-    date: "2025-05-10",
-    category: "Cloud",
-    readTime: "10 min read",
-  },
-  {
-    slug: "intune-autopilot-guide",
-    title: "Zero-Touch Deployment with Windows Autopilot and Intune",
-    excerpt:
-      "Learn how to streamline device provisioning with Microsoft Intune and Windows Autopilot — saving hours of manual setup.",
-    date: "2025-04-22",
-    category: "Endpoint",
-    readTime: "7 min read",
-  },
-  {
-    slug: "itil-for-small-business",
-    title: "Applying ITIL Principles to Small Business IT Support",
-    excerpt:
-      "ITIL isn&apos;t just for enterprises. Here&apos;s how to adapt ITIL frameworks to deliver consistent, professional IT support for SMBs.",
-    date: "2025-04-05",
-    category: "Management",
-    readTime: "9 min read",
-  },
-  {
-    slug: "powershell-automation",
-    title: "PowerShell Automation: 5 Scripts Every IT Admin Should Have",
-    excerpt:
-      "Save time and reduce errors with these essential PowerShell scripts for user management, reporting, and infrastructure monitoring.",
-    date: "2025-03-18",
-    category: "Automation",
-    readTime: "11 min read",
-  },
-];
-
 export default function Blog() {
+  const posts = [
+    {
+      slug: "m365-migration-guide",
+      title: "The Complete Microsoft 365 Migration Guide for Australian Businesses",
+      excerpt:
+        "Planning a Microsoft 365 migration? This comprehensive guide covers everything from initial assessment to post-migration optimization.",
+      date: "2025-06-15",
+      category: "Cloud",
+      readTime: "8 min read",
+    },
+    {
+      slug: "cybersecurity-checklist",
+      title: "10 Essential Cybersecurity Checks Every MSP Client Needs",
+      excerpt:
+        "Protect your business with this actionable cybersecurity checklist covering endpoint security, MFA, backups, and compliance.",
+      date: "2025-05-28",
+      category: "Security",
+      readTime: "6 min read",
+    },
+    {
+      slug: "azure-vs-on-prem",
+      title: "Azure vs On-Premises: Making the Right Choice for Your Business",
+      excerpt:
+        "Should you move to the cloud or stay on-premises? We break down the costs, benefits, and considerations for Australian businesses.",
+      date: "2025-05-10",
+      category: "Cloud",
+      readTime: "10 min read",
+    },
+    {
+      slug: "intune-autopilot-guide",
+      title: "Zero-Touch Deployment with Windows Autopilot and Intune",
+      excerpt:
+        "Learn how to streamline device provisioning with Microsoft Intune and Windows Autopilot — saving hours of manual setup.",
+      date: "2025-04-22",
+      category: "Endpoint",
+      readTime: "7 min read",
+    },
+    {
+      slug: "itil-for-small-business",
+      title: "Applying ITIL Principles to Small Business IT Support",
+      excerpt:
+        "ITIL isn't just for enterprises. Here's how to adapt ITIL frameworks to deliver consistent, professional IT support for SMBs.",
+      date: "2025-04-05",
+      category: "Management",
+      readTime: "9 min read",
+    },
+    {
+      slug: "powershell-automation",
+      title: "PowerShell Automation: 5 Scripts Every IT Admin Should Have",
+      excerpt:
+        "Save time and reduce errors with these essential PowerShell scripts for user management, reporting, and infrastructure monitoring.",
+      date: "2025-03-18",
+      category: "Automation",
+      readTime: "11 min read",
+    },
+  ];
+
+  const categories = ["All", "Cloud", "Security", "Endpoint", "Management", "Automation"];
+
   return (
     <>
       <Navbar />
@@ -73,8 +77,8 @@ export default function Blog() {
               Insights & Resources
             </span>
             <h1 className="font-heading font-bold text-5xl sm:text-6xl text-white mt-3 mb-6">
-              IT Knowledge{" "}
-              <span className="text-brand-green">Hub</span>
+              IT Knowledge
+              <span className="text-brand-green"> Hub</span>
             </h1>
             <p className="text-lg text-slate-300 leading-relaxed">
               Practical guides, industry insights, and expert perspectives from The Kakadu IT team.
@@ -89,7 +93,7 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Categories filter (visual only) */}
           <div className="flex flex-wrap gap-3 mb-12">
-            {["All", "Cloud", "Security", "Endpoint", "Management", "Automation"].map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${

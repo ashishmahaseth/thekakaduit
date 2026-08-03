@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -68,8 +70,8 @@ export default function About() {
                   and ITIL-aligned service delivery.
                 </p>
                 <p>
-                  We&apos;re proud to be Australian-owned and operated, serving businesses across the ACT
-                  and beyond with the same commitment to quality that built our reputation.
+                  We&apos;re proud to be Australian-owned and operated, serving businesses across the
+                  country with the same commitment to quality that built our reputation.
                 </p>
               </div>
             </div>

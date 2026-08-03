@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -8,7 +10,7 @@ const services = [
     title: "Managed IT Support",
     tagline: "Your outsourced IT department",
     description:
-      "We provide 24/7 proactive monitoring, help desk support, and comprehensive IT management for businesses of all sizes.",
+      "We provide 24/7 proactive monitoring, help desk support, and comprehensive IT management for businesses of all sizes. Predictable pricing, clear SLAs, and a proactive approach to keep your team productive.",
     features: [
       "24/7 Help Desk & Remote Support",
       "Server & Network Monitoring",
@@ -28,7 +30,7 @@ const services = [
     title: "Microsoft 365",
     tagline: "Collaboration without boundaries",
     description:
-      "From initial migration to ongoing administration, we ensure your Microsoft 365 environment is secure, optimized, and delivering maximum productivity.",
+      "From initial migration to ongoing administration, we ensure your Microsoft 365 environment is secure, optimized, and delivering maximum productivity. Includes Teams, SharePoint, OneDrive, and Exchange Online.",
     features: [
       "Tenant Setup & Configuration",
       "Email Migration (Exchange Online)",
@@ -48,7 +50,7 @@ const services = [
     title: "Cybersecurity",
     tagline: "Protect what matters most",
     description:
-      "In an era of increasing threats, robust security isn&apos;t optional. We implement layered defense strategies aligned with ISO 27001 principles.",
+      "In an era of increasing threats, robust security isn't optional. We implement layered defense strategies aligned with Essential 8 and ISO 27001 principles to protect your business.",
     features: [
       "Endpoint Protection (Defender)",
       "Firewall & Network Security",
@@ -68,7 +70,7 @@ const services = [
     title: "Cloud Infrastructure",
     tagline: "Scalable, resilient, cost-effective",
     description:
-      "We design and manage Azure and hybrid cloud environments optimized for performance, security, and cost.",
+      "We design and manage Azure and hybrid cloud environments optimized for performance, security, and cost. Tailored solutions for Australian businesses of all sizes.",
     features: [
       "Azure Architecture & Migration",
       "Hybrid Cloud Design",
@@ -88,7 +90,7 @@ const services = [
     title: "Active Directory & Identity",
     tagline: "Secure identity management",
     description:
-      "User provisioning, group policy, conditional access, and identity lifecycle management for on-prem AD and Azure AD/Entra ID.",
+      "User provisioning, group policy, conditional access, and identity lifecycle management for on-prem AD and Azure AD/Entra ID environments.",
     features: [
       "User Lifecycle Management",
       "Group Policy & OU Design",
@@ -108,7 +110,7 @@ const services = [
     title: "Intune & Endpoint Management",
     tagline: "Zero-touch device deployment",
     description:
-      "Streamline device management with Microsoft Intune. From enrollment to compliance, we manage the full lifecycle.",
+      "Streamline device management with Microsoft Intune. From enrollment to compliance, we manage the full device lifecycle with zero-touch provisioning.",
     features: [
       "Intune Tenant Configuration",
       "Windows Autopilot Deployment",
@@ -128,7 +130,7 @@ const services = [
     title: "Automation & Scripting",
     tagline: "Eliminate repetitive tasks",
     description:
-      "PowerShell, Power Automate, and Azure Logic Apps to automate your IT workflows — from onboarding to compliance reporting.",
+      "PowerShell, Power Automate, and Azure Logic Apps to automate your IT workflows — from onboarding to compliance reporting. Save time, reduce errors.",
     features: [
       "PowerShell Automation Scripts",
       "Power Automate Workflows",
@@ -148,7 +150,7 @@ const services = [
     title: "Network Infrastructure",
     tagline: "Reliable connectivity, always",
     description:
-      "Network design, implementation, and management ensuring your business stays connected, secure, and performing at its best.",
+      "Network design, implementation, and management ensuring your business stays connected, secure, and performing at its best. Includes WiFi, VPN, and VoIP solutions.",
     features: [
       "Network Design & Cabling",
       "WiFi & Wireless Solutions",
@@ -160,6 +162,87 @@ const services = [
     icon: (
       <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
+  {
+    id: "voip",
+    title: "Business Telephone System",
+    tagline: "VoIP & unified communications",
+    description:
+      "Professional VoIP phone systems, SIP trunking, and unified communications platforms to streamline voice, video, and messaging across your organisation.",
+    features: [
+      "VoIP System Setup & Configuration",
+      "SIP Trunking & DDI Provisioning",
+      "Call Routing & IVR Systems",
+      "Video Conferencing Solutions",
+      "Mobile Integration & Softphones",
+      "Call Analytics & Reporting",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      </svg>
+    ),
+  },
+  {
+    id: "graphics-design",
+    title: "Professional Graphics Design",
+    tagline: "Brand identity & creative assets",
+    description:
+      "Logos, marketing collateral, social media graphics, and brand identity design to help your business stand out with professional, cohesive visual communication.",
+    features: [
+      "Logo & Brand Identity Design",
+      "Marketing Collateral (Brochures, Flyers)",
+      "Social Media Graphics",
+      "Presentation & Pitch Deck Design",
+      "Print & Digital Assets",
+      "Brand Style Guides",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
+  {
+    id: "digital-marketing",
+    title: "Digital Marketing",
+    tagline: "Growth & online presence",
+    description:
+      "SEO, social media management, email marketing, and paid advertising strategies to grow your online presence and generate qualified leads.",
+    features: [
+      "SEO & Content Strategy",
+      "Social Media Management",
+      "Email Marketing Campaigns",
+      "Google Ads & PPC Management",
+      "Analytics & Performance Reporting",
+      "Conversion Optimisation",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+      </svg>
+    ),
+  },
+  {
+    id: "it-consultation",
+    title: "IT Consultation",
+    tagline: "Strategic technology advice",
+    description:
+      "Expert guidance on IT strategy, digital transformation, vendor selection, and technology roadmaps to align your IT investments with business goals.",
+    features: [
+      "IT Strategy & Planning",
+      "Digital Transformation Advisory",
+      "Vendor Selection & Management",
+      "Technology Roadmapping",
+      "Security Risk Assessment",
+      "Budget & ROI Planning",
+    ],
+    icon: (
+      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     ),
   },
@@ -185,6 +268,7 @@ export default function Services() {
             <p className="text-lg text-slate-300 leading-relaxed">
               From day-to-day support to strategic cloud architecture, we provide the full spectrum
               of managed IT services your business needs to thrive in a digital-first world.
+              Serving Australian businesses with highly experienced, licensed professionals.
             </p>
           </div>
         </div>
@@ -241,7 +325,7 @@ export default function Services() {
             Need a Custom Solution?
           </h2>
           <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto">
-            Every business is unique. Let&apos;s discuss your specific IT challenges and build a
+            Every business is unique. Let's discuss your specific IT challenges and build a
             tailored strategy that fits your goals and budget.
           </p>
           <Link
